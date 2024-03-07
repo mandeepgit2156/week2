@@ -1,25 +1,27 @@
 package com.example.weektwo;
 
-public class Book {
+import java.util.Arrays;
+import java.util.List;
 
-// variables
+// this is our model class
+public class Book {
+    // variables and constants
     private int bookId;
     private String bookName, author, genre;
-
     private double price;
-
     private boolean isAvailable;
 
-// constructors
+    // constructor
     public Book(int bookId, String bookName, String author, String genre, double price, boolean isAvailable) {
-        this.bookId = bookId;
-        this.bookName = bookName;
-        this.author = author;
-        this.genre = genre;
-        this.price = price;
-        this.isAvailable = isAvailable;
+        setBookId(bookId);
+        setBookName(bookName);
+        setAuthor(author);
+        setGenre(genre);
+        setPrice(price);
+        setAvailable(isAvailable);
     }
 
+    // methods - getters, setters
     public int getBookId() {
         return bookId;
     }
@@ -91,8 +93,10 @@ public class Book {
 
     // to string method
 
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
+    @Override
+    public String toString() {
+        return String.format("%d: The price of %s written by %s of %s " +
+                        "is %f. Availability: %s",
+                bookId, bookName, author, genre, price, isAvailable);
     }
 }
